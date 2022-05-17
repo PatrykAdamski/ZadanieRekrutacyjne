@@ -23,3 +23,15 @@ button {
 a {
   text-decoration: none;
 }
+
+.basic__btn {
+  outline: none;
+  padding: 15px 30px;
+  border: 1px solid $text-color;
+  border-radius: 25px;
+  background-color: $secondary-color;
+  color: $text-color;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+}
