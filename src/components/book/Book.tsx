@@ -20,7 +20,7 @@ export const Book: React.FC<IBookProps> = ({
 
   return (
     <div className="book">
-      <img alt="sadas" src={imageBook}></img>
+      <img alt="book" src={imageBook}></img>
       <h2 className="book__title">{title}</h2>
       <div className="book__author">
         {authors.map((author) => (

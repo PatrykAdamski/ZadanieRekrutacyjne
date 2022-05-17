@@ -5,10 +5,11 @@ import { api, endpoints } from '../api/index';
 import { IBook } from '../type/IBook';
 
 export const getAllBooks = (
-  setBooks: React.Dispatch<React.SetStateAction<IBook>>
+  setBooks: React.Dispatch<React.SetStateAction<IBook>>,
+  page = 1
 ) => {
   api
-    .get<IBook>(`${endpoints.books}`)
+    .get<IBook>(`${endpoints.books}/${page > 1 ? `?page=${page}` : ''}`)
     .then(({ data }) => {
       setBooks(data);
     })
