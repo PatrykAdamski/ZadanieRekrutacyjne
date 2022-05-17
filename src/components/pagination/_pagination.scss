@@ -1,0 +1,20 @@
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: $primary-color;
+    color: $text-color;
+    margin: 2rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &--current {
+      background-color: $secondary-color;
+    }
+  }
+}

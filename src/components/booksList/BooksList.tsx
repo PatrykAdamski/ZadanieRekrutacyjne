@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { getAllBooks } from '../../api/apiBooks';
 import { IBook } from '../../type/IBook';
 import { Book } from '../book/Book';
+import { Pagination } from '../pagination/Pagination';
 
 const initialStateBooks = {
   count: 0,
@@ -29,22 +30,25 @@ export const BooksList = () => {
   }, []);
 
   return (
-    <section className="books">
+    <>
       {books !== initialStateBooks ? (
-        books.results.map((book) => {
-          return (
-            <Book
-              key={book.id}
-              title={book.title}
-              authors={book.agents}
-              languages={book.languages}
-              resources={book.resources}
-            />
-          );
-        })
+        <section className="books">
+          {books.results.map((book) => {
+            return (
+              <Book
+                key={book.id}
+                title={book.title}
+                authors={book.agents}
+                languages={book.languages}
+                resources={book.resources}
+              />
+            );
+          })}
+          <Pagination count={books.count} setBooks={setBooks} />
+        </section>
       ) : (
         <h2 className="base__loading">...Loading</h2>
       )}
-    </section>
+    </>
   );
 };
