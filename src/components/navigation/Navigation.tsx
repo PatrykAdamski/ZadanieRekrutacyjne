@@ -18,10 +18,10 @@ export const Navigation = () => {
       />
       <ul className="nav__list">
         <a href="/#" className="nav__item">
-          Strona główna
+          Homepage
         </a>
         <a href="/#" className="nav__item">
-          Ulubione
+          Favorites
         </a>
       </ul>
     </nav>
