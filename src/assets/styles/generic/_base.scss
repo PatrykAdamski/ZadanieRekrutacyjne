@@ -45,3 +45,7 @@ a {
     transform: translate(-50%, -50%);
   }
 }
+
+.root__modal--active {
+  filter: blur(3px) grayscale(80%);
+}

@@ -1,29 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { getAllBooks } from '../../api/apiBooks';
-import { IBook } from '../../type/IBook';
+import { IBooksContextType } from '../../type/IBooksContextType';
+import { BooksContext } from '../../providers/BooksProvider';
+
 import { Book } from '../book/Book';
 import { Pagination } from '../pagination/Pagination';
 
-const initialStateBooks = {
-  count: 0,
-  next: '',
-  previous: null,
-  results: [
-    {
-      id: 0,
-      type: '',
-      title: '',
-      description: '',
-      languages: '',
-      agents: [{ id: 0, person: '' }],
-      resources: [{ id: 0, uri: '' }],
-    },
-  ],
-};
-
 export const BooksList = () => {
-  const [books, setBooks] = useState<IBook>(initialStateBooks);
+  const { books, setBooks } = useContext(BooksContext) as IBooksContextType;
 
   useEffect(() => {
     getAllBooks(setBooks);
@@ -31,7 +16,7 @@ export const BooksList = () => {
 
   return (
     <>
-      {books !== initialStateBooks ? (
+      {books.count !== 0 ? (
         <section className="books">
           {books.results.map((book) => {
             return (
@@ -47,7 +32,9 @@ export const BooksList = () => {
           <Pagination count={books.count} setBooks={setBooks} />
         </section>
       ) : (
-        <h2 className="base__loading">...Loading</h2>
+        <h2 className="base__loading">
+          {books.results.length === 0 ? 'Brak' : '...Loading'}
+        </h2>
       )}
     </>
   );
