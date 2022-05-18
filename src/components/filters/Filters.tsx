@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { BooksContext } from '../../providers/BooksProvider';
 import { IBooksContextType } from '../../type/IBooksContextType';
 import { getSearchedBooks } from '../../api/apiBooks';
-import { useModal } from '../modal/useModal';
+import { useModal } from '../../hooks/useModal';
 import { FiltersForm } from '../filtersForm/FiltersForm';
 import { InputForm } from '../inputform/InputForm';
 
@@ -26,7 +26,7 @@ export const Filters = () => {
           type="search"
           placeholder="search..."
           value={searchValue}
-          onChange={changeInputSearch}
+          onAction={changeInputSearch}
         ></InputForm>
         <div
           onClick={() => getSearchedBooks(setBooks, searchValue)}
