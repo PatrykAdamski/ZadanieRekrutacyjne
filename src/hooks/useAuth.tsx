@@ -1,8 +1,24 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState, useContext } from 'react';
 import fire from '../firebase/config';
+import { ILogin } from '../type/ILogin';
 
-export const useAuth = () => {
+const AuthContext = React.createContext<ILogin>({
+  user: '',
+  userId: '',
+  setEmail: () => {},
+  setPassword: () => {},
+  emailError: '',
+  passwordError: '',
+  handleLogin: () => {},
+  handleSignUp: () => {},
+  handleLogout: () => {},
+  authListener: () => {},
+  clearErrors: () => {},
+});
+
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState('');
+  const [userId, setUserId] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -66,21 +82,38 @@ export const useAuth = () => {
       if (user) {
         clearInputs();
         setUser(user);
+        setUserId(user.uid);
       } else {
         setUser('');
       }
     });
   };
-  return {
-    user,
-    setEmail,
-    setPassword,
-    handleLogout,
-    handleSignUp,
-    handleLogin,
-    authListener,
-    emailError,
-    passwordError,
-    clearErrors,
-  };
+  return (
+    <AuthContext.Provider
+      value={{
+        user,
+        userId,
+        setEmail,
+        setPassword,
+        handleLogout,
+        handleSignUp,
+        handleLogin,
+        authListener,
+        emailError,
+        passwordError,
+        clearErrors,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export const useAuth = () => {
+  const auth = useContext(AuthContext);
+
+  if (!auth) {
+    throw Error('useAuth needs to be used inside AuthContext');
+  }
+  return auth;
 };
