@@ -4,14 +4,14 @@ import { IInputForm } from '../../type/IInputForm';
 export const InputForm: React.FC<IInputForm> = ({
   name,
   type,
-  onChange,
+  onAction,
   placeholder,
 }) => {
   return (
     <input
       name={name}
       type={type}
-      onChange={onChange}
+      onChange={onAction}
       placeholder={placeholder}
       className="input"
     ></input>

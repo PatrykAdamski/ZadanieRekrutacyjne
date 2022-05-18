@@ -52,97 +52,97 @@ export const FiltersForm = ({ handleClose }: { handleClose: () => void }) => {
         name="type"
         placeholder="Type"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="languages"
         placeholder="Languages"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="titleContains"
         placeholder="Title contains"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="descriptionContains"
         placeholder="Description contains"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="downloadsRangeMin"
         placeholder="Downloads is in range"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="downloadsRangeMax"
         placeholder="Downloads is in range"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="bookshelvesName"
         placeholder="Bookshelves name"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="resourcesType"
         placeholder="Resources type"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="agentsType"
         placeholder="Agents type"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="agentsPersonNameContains"
         placeholder="Agents person name contains"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="agentsPersonAliasContains"
         placeholder="Agents person alias contains"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="agentsPersonWebpageContains"
         placeholder="Agents person webpage contains"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="agentsPersonBirthDateMin"
         placeholder="Agents person birth date is in range"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="agentsPersonBirthDateMax"
         placeholder="Agents person birth date is in range"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="agentsPersonDeathDateMax"
         placeholder="Agents person death date is in range"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
       <InputForm
         name="agentsPersonDeathDateMin"
         placeholder="Agents person death date is in range"
         type="text"
-        onChange={(e) => handleChangeInput(e)}
+        onAction={(e) => handleChangeInput(e)}
       />
 
       <button type="submit" className="filters__btn">
