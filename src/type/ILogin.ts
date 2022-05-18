@@ -1,9 +1,13 @@
 export interface ILogin {
-  handleLogin?: (e: React.FormEvent<HTMLFormElement>) => void;
-  handleSignUp?: (e: React.FormEvent<HTMLFormElement>) => void;
-  setEmail: React.Dispatch<React.SetStateAction<string>>;
+  user: string;
+  userId: string;
+  setEmail: React.Dispatch<React.SetStateAction<string>> | (() => void);
+  setPassword: React.Dispatch<React.SetStateAction<string>> | (() => void);
   emailError: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
   passwordError: string;
+  handleLogin?: (e: React.FormEvent<HTMLFormElement>) => void | (() => void);
+  handleSignUp?: (e: React.FormEvent<HTMLFormElement>) => void | (() => void);
+  handleLogout: () => void;
+  authListener: () => void;
   clearErrors: () => void;
 }

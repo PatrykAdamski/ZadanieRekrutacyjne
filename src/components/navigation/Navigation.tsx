@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ButtonHamburger } from '../buttonHamburger/ButtonHamburger';
 import { Link } from 'react-router-dom';
+import { ILogin } from '../../type/ILogin';
+import { useAuth } from '../../hooks/useAuth';
 
-export const Navigation = ({
-  user,
-  handleLogout,
-}: {
-  user: {};
-  handleLogout: () => void;
-}) => {
+export const Navigation = () => {
   const [isMenuActive, setMenuActive] = useState(false);
+  const auth: ILogin = useAuth();
+
+  useEffect(() => {
+    auth.authListener();
+  }, []);
 
   return (
     <nav
@@ -27,12 +28,12 @@ export const Navigation = ({
         <Link to="/" className="nav__item">
           Homepage
         </Link>
-        {user ? (
+        {auth.user ? (
           <>
-            <Link to="/signUp" className="nav__item">
+            <Link to="/favorites" className="nav__item">
               Favorites
             </Link>
-            <Link to="/" onClick={handleLogout} className="nav__item">
+            <Link to="/" onClick={auth.handleLogout} className="nav__item">
               Logout
             </Link>
           </>
